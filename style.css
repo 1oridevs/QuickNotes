@@ -71,8 +71,26 @@ header button:hover {
     transition: background 0.3s;
 }
 
-.note-input button:hover {
+.note-input button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.note-input button:hover:enabled {
     background: #218838;
+}
+
+/* Character Counter */
+.char-counter {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.char-counter span {
+    font-weight: bold;
+    color: #333;
 }
 
 /* Notes List */

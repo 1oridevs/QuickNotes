@@ -15,8 +15,11 @@
         </header>
         <main>
             <div class="note-input">
-                <textarea id="note-text" placeholder="Write your note here..." aria-label="Note Text"></textarea>
-                <button id="add-note" aria-label="Add Note">Add Note</button>
+                <textarea id="note-text" placeholder="Write your note here..." aria-label="Note Text" maxlength="200"></textarea>
+                <div class="char-counter">
+                    <span id="char-count">0</span>/200 characters
+                </div>
+                <button id="add-note" aria-label="Add Note" disabled>Add Note</button>
             </div>
             <div class="notes-list">
                 <h2>Your Notes</h2>

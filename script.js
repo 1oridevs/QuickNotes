@@ -1,5 +1,6 @@
 // Select DOM elements
 const noteText = document.getElementById("note-text");
+const charCount = document.getElementById("char-count");
 const addNoteButton = document.getElementById("add-note");
 const notesList = document.getElementById("notes");
 const toggleThemeButton = document.getElementById("toggle-theme");
@@ -34,11 +35,19 @@ const addNoteToDOM = (content) => {
 // Add a new note
 const addNote = () => {
     const content = noteText.value.trim();
-    if (content) {
+    if (content && content.length <= 200) {
         addNoteToDOM(content);
         saveNotes();
         noteText.value = "";
+        updateCharCount();
     }
+};
+
+// Update character count
+const updateCharCount = () => {
+    const currentLength = noteText.value.length;
+    charCount.textContent = currentLength;
+    addNoteButton.disabled = currentLength === 0 || currentLength > 200;
 };
 
 // Toggle between light and dark mode
@@ -50,5 +59,6 @@ const toggleTheme = () => {
 
 // Event listeners
 addNoteButton.addEventListener("click", addNote);
+noteText.addEventListener("input", updateCharCount);
 toggleThemeButton.addEventListener("click", toggleTheme);
 document.addEventListener("DOMContentLoaded", loadNotes);
